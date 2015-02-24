@@ -1,0 +1,85 @@
+<header class="header -hero" role="banner">
+    <div class="wrapper">
+        <h1 class="header__title">
+            {{ data.title }}
+        </h1>
+        <p class="header__subtitle">{{ data.call_to_action }}</p>
+    </div>
+</header>
+
+<main>
+
+    <div class="container -padded">
+        <h1 class="heading -banner"><span>Step 1: Know It</span></h1>
+        <div class="wrapper">
+            <div class="container__block -half">
+                <h3>The Problem</h3>
+                <p>{{ data.fact_problem.fact }}<sup>{{data.fact_problem.footnotes}}</sup></p>
+            </div>
+
+            <div class="container__block -half">
+                <h3>The Solution</h3>
+                {{{ data.solution_copy }}}
+                {{{ data.solution_support }}}
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="container -padded">
+        <h1 class="heading -banner"><span>Step 2: Plan It</span></h1>
+        <div class="wrapper">
+            <div class="container__block -narrow">
+                <p>Lorem ipsum dolor sit amet.</p>
+            </div>
+
+            {{#if data.items_needed }}
+                <div class="container__block -half with-lists -compacted">
+                    <h4>Stuff You Need</h4>
+                  {{{ data.items_needed }}}
+                </div>
+            {{/if}}
+
+            {{#if data.vips }}
+                <div class="container__block -half">
+                    <h4>VIPs</h4>
+                  {{{ data.vips }}}
+                </div>
+            {{/if}}
+
+            {{#if data.time_and_place }}
+            <div class="container__block -half">
+                <h4>Time and Place</h4>
+                {{{ data.time_and_place }}}
+            </div>
+            {{/if}}
+        </div>
+    </div>
+
+    <div class="container -padded">
+        <h1 class="heading -banner"><span>Step 3: Do It</span></h1>
+        <div class="wrapper">
+            <div class="container__block -narrow">
+                <h3>{{ data.pre_step_header }}</h3>
+                {{{ data.pre_step_copy }}}
+
+                <h3>Snap a Pic</h3>
+                {{{ data.photo_step }}}
+
+                <h3>{{ data.post_step_header }}</h3>
+                {{{ data.post_step_copy }}}
+            </div>
+        </div>
+    </div>
+
+    <div class="container -padded">
+        <h1 class="heading -banner"><span>Step 4: Prove It</span></h1>
+        <div class="wrapper">
+            <div class="container__block -narrow">
+                <p>Lorem ipsum dolor sit amet.</p>
+            </div>
+        </div>
+    </div>
+
+</main>
