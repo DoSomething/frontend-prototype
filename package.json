@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "babel": "^4.4.5",
+    "body-parser": "^1.14.2",
     "compression": "^1.4.1",
     "express": "^4.11.2",
     "express-handlebars": "^1.2.1",
