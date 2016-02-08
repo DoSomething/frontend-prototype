@@ -26,4 +26,6 @@ require('./server/campaign')(app);
 require('./server/auth')(app);
 
 // Start 'er up!
-app.listen(3000);
+app.listen(process.env.PORT, function() {
+  console.log("Listening on " + process.env.PORT);
+});
