@@ -5,7 +5,7 @@
   "main": "app/server.js",
   "browser": "app/client.js",
   "scripts": {
-    "start": "nodemon app/server.js",
+    "start": "heroku local -f Procfile_dev -e var.env",
     "build": "NODE_ENV=production browserify . | uglifyjs -cm > dist/app.js",
     "watch": "watchify -o dist/app.js -v -d .",
     "test": "echo \"Error: no test specified\" && exit 1"
