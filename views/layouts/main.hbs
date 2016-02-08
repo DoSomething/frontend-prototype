@@ -44,20 +44,6 @@
                             <span class="navigation__subtitle">Young people + Social change</span>
                         </a>
                     </li>
-                  </ul>
-                  <ul class="navigation__secondary">
-                    {{#if loggedIn}}
-                      <li class="navigation__dropdown">
-                        <a href="#" class="navigation__dropdown-toggle"><?php print $user_identifier ?></a>
-                        <ul>
-                          <li><?php print l(t('My Account'), 'user/' . $user->uid); ?></li>
-                          <li><?php print l(t('Log Out'), 'user/logout', ['attributes' => ['class' => ['secondary-nav-item'], 'id' => 'link--logout']]) ?></li>
-                        </ul>
-                      </li>
-                    {{else}}
-                      <li class="login">Log In</li>
-                    {{/if}}
-                  </ul>
             </div>
         </nav>
 
