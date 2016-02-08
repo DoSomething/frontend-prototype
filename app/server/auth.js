@@ -42,4 +42,33 @@ export default function(app) {
       res.redirect('back');
     });
 
+    app.post('/register', function(req, res) {
+      console.log(req.body);
+      var name = req.body.first_name || '';
+      var birthday = req.body.birthdate || '';
+      var email = req.body.mail || '';
+      var mobile = req.body.mobile || '';
+      var pass = req.body.pass || '';
+      var pass2 = req.body.pass2 || '';
+
+      if (email == '' && mobile == '') {
+        res.redirect('back');
+      }
+
+      if (pass != pass2 || pass == '' || pass2 == '') {
+        res.redirect('back');
+      }
+
+      request
+          .post(`https://northstar.dosomething.org/v1/auth/register`)
+          .set('X-DS-REST-API-Key', process.env.NORTHSTAR_API_KEY)
+          .set('Accept', 'application/json')
+          .send({'email': email, 'password': pass, 'mobile': mobile, 'birthday': birthday})
+          .query('create_drupal_user=1')
+          .end(function(data) {
+            console.log(data);
+            res.redirect('back');
+          });
+    });
+
 };
