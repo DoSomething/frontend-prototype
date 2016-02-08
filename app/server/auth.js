@@ -3,7 +3,7 @@ import request from 'superagent';
 export default function(app) {
 
     /**
-     * Campaign interface.
+     * Login endpoint
      */
     app.post('/login', function(req, res) {
       var email = req.body.name;
@@ -21,10 +21,25 @@ export default function(app) {
               if (data.status == 201) {
                 var userData = JSON.parse(data.text).data.user.data;
                 req.auth.id = userData.id;
+                req.auth.session_token = userData.session_token;
               }
-              console.log(req.auth.id);
               res.redirect('back');
           });
+    });
+
+    /**
+     * Logout endpoint.
+     */
+    app.get('/logout', function(req, res) {
+      req.auth.id = false;
+      request
+          .post(`https://northstar.dosomething.org/v1/logout`)
+          .set('X-DS-REST-API-Key', process.env.NORTHSTAR_API_KEY)
+          .set('Accept', 'application/json')
+          .send({'Session': req.auth.session_token})
+          .end(function(data) {
+          });
+      res.redirect('back');
     });
 
 };
