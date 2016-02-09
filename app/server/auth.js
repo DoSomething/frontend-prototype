@@ -22,6 +22,8 @@ export default function(app) {
                 var userData = JSON.parse(data.text).data.user.data;
                 req.auth.id = userData.id;
                 req.auth.session_token = userData.session_token;
+                req.auth.drupal_id = userData.drupal_id;
+                req.auth.first_name = userData.first_name;
               }
               res.redirect('back');
           });
@@ -43,7 +45,6 @@ export default function(app) {
     });
 
     app.post('/register', function(req, res) {
-      console.log(req.body);
       var name = req.body.first_name || '';
       var birthday = req.body.birthdate || '';
       var email = req.body.mail || '';
@@ -63,11 +64,18 @@ export default function(app) {
           .post(`https://northstar.dosomething.org/v1/auth/register`)
           .set('X-DS-REST-API-Key', process.env.NORTHSTAR_API_KEY)
           .set('Accept', 'application/json')
-          .send({'email': email, 'password': pass, 'mobile': mobile, 'birthday': birthday})
+          .send({'email': email, 'password': pass, 'mobile': mobile, 'birthdate': birthday, 'first_name': name})
           .query('create_drupal_user=1')
           .end(function(data) {
-            console.log(data);
+            if (data.status == 200) {
+              var userData = JSON.parse(data.text).data.user.data;
+              req.auth.id = userData.id;
+              req.auth.session_token = userData.session_token;
+              req.auth.drupal_id = userData.drupal_id;
+              req.auth.first_name = userData.first_name;
+            }
             res.redirect('back');
+            // res.json(data);
           });
     });
 

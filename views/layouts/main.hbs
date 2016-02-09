@@ -49,7 +49,11 @@
                   <ul class="navigation__secondary">
                     <li class="navigation__dropdown">
                       {{#if loggedIn}}
-                        <p style="color: #FFF">login test</p>
+                      <a href="#" class="navigation__dropdown-toggle">{{first_name}}</a>
+                        <ul>
+                          <li><a href="https://www.dosomething.org/us/user/{{drupal_id}}" class="active">My Account</a></li>
+                          <li><a href="/logout" class="secondary-nav-item" id="link--logout">Log Out</a></li>
+                        </ul>
                       {{else}}
                         <li class="login">
                           <a class="secondary-nav-item" data-modal-href="#modal--login" id="link--login">Log In</a>

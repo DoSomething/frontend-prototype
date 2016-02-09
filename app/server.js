@@ -21,8 +21,11 @@ app.use(session({
 }));
 
 app.use(function(req, res, next) {
-  if (req.auth && req.auth.id) {
+  if (req.auth && req.auth.id && req.auth.drupal_id) {
     res.locals.loggedIn = true;
+    res.locals.id = req.auth.id;
+    res.locals.drupal_id = req.auth.drupal_id;
+    res.locals.first_name = req.auth.first_name;
     next();
   } else {
     next();
