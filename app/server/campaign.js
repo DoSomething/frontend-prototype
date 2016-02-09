@@ -16,4 +16,8 @@ export default function(app) {
 
     });
 
+    app.get('/data-test', function(req, res) {
+      res.render('gundata', {layout: false});
+    });
+
 };

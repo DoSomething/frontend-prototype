@@ -1,0 +1,138 @@
+<div class="map">
+  <ul class="stately">
+    <li data-state="al" id="al">A</li>
+    <li data-state="ak" id="ak">B</li>
+    <li data-state="ar" id="ar">C</li>
+    <li data-state="az" id="az">D</li>
+    <li data-state="ca" id="ca">E</li>
+    <li data-state="co" id="co">F</li>
+    <li data-state="ct" id="ct">G</li>
+    <li data-state="de" id="de">H</li>
+    <li data-state="dc" id="dc">I</li>
+    <li data-state="fl" id="fl">J</li>
+    <li data-state="ga" id="ga">K</li>
+    <li data-state="hi" id="hi">L</li>
+    <li data-state="id" id="id">M</li>
+    <li data-state="il" id="il">N</li>
+    <li data-state="in" id="in">O</li>
+    <li data-state="ia" id="ia">P</li>
+    <li data-state="ks" id="ks">Q</li>
+    <li data-state="ky" id="ky">R</li>
+    <li data-state="la" id="la">S</li>
+    <li data-state="me" id="me">T</li>
+    <li data-state="md" id="md">U</li>
+    <li data-state="ma" id="ma">V</li>
+    <li data-state="mi" id="mi">W</li>
+    <li data-state="mn" id="mn">X</li>
+    <li data-state="ms" id="ms">Y</li>
+    <li data-state="mo" id="mo">Z</li>
+    <li data-state="mt" id="mt">a</li>
+    <li data-state="ne" id="ne">b</li>
+    <li data-state="nv" id="nv">c</li>
+    <li data-state="nh" id="nh">d</li>
+    <li data-state="nj" id="nj">e</li>
+    <li data-state="nm" id="nm">f</li>
+    <li data-state="ny" id="ny">g</li>
+    <li data-state="nc" id="nc">h</li>
+    <li data-state="nd" id="nd">i</li>
+    <li data-state="oh" id="oh">j</li>
+    <li data-state="ok" id="ok">k</li>
+    <li data-state="or" id="or">l</li>
+    <li data-state="pa" id="pa">m</li>
+    <li data-state="ri" id="ri">n</li>
+    <li data-state="sc" id="sc">o</li>
+    <li data-state="sd" id="sd">p</li>
+    <li data-state="tn" id="tn">q</li>
+    <li data-state="tx" id="tx">r</li>
+    <li data-state="ut" id="ut">s</li>
+    <li data-state="va" id="va">t</li>
+    <li data-state="vt" id="vt">u</li>
+    <li data-state="wa" id="wa">v</li>
+    <li data-state="wv" id="wv">w</li>
+    <li data-state="wi" id="wi">x</li>
+    <li data-state="wy" id="wy">y</li>
+  </ul>
+  <div class="text-container">
+    <h1 id='graph-text'></h1>
+  </div>
+</div>
+
+
+<link rel="stylesheet" href="/viz/stately.css">
+<style type='text/css'>
+  .map .text-container {
+    width: 500px;
+    display: block;
+    margin: 0 auto;
+    background-color: #ddd;
+  }
+  .text-container h1 {
+    text-align: center;
+    margin: 0;
+    padding-bottom: 16px;
+    color: #FFF;
+  }
+  ul.stately {
+    	width: 500px; /*width and font size must match*/
+    	font-size: 500px;
+    	background-color: #ddd;
+      color: #222;
+  }
+  .stately li {
+    color: #ddd;
+  }
+  /*.stately li#va,
+  .stately li#md,
+  .stately li#dc {
+    color: #ff4747;
+  }*/
+</style>
+<script type="text/javascript" src="/viz/papaparse.min.js"></script>
+<script>
+  var stack = [];
+  var states = {};
+  var intervalId = 0;
+
+  // Download state data
+  Papa.parse('/viz/state_table.csv', {
+    download: true,
+    complete: function(results) {
+
+      // Get state name + abreviations for use in stately
+      var rawData = results.data;
+      rawData.forEach(function(element, index, array) {
+        if (index == 0 || element[2] == undefined) {
+          return;
+        }
+        states[element[1]] = {id: element[2].toLowerCase(), shading: 70};
+      });
+
+      // Download shooting data
+      Papa.parse('/viz/mass_shootings_2015.csv', {
+        download: true,
+        complete: function(results) {
+          var rawData = results.data;
+          rawData.forEach(function(element, index, array) {
+            if (index == 0) {
+              return;
+            }
+            stack.push({date: element[0], state: element[1], index: states[element[1]]}); //Push each event in reverse order, so we can pop() it later
+          });
+          intervalId = setInterval(displayData, 100); //Display a row every half second
+        }
+      });
+
+    }
+  });
+
+  function displayData() {
+    if (stack.length == 0) {
+      clearInterval(intervalId);
+    }
+    var row = stack.pop();
+    console.log(row);
+    var percent = states[row.state].shading -= 5;
+    document.getElementById(row.index.id).style.color = 'hsla(360, 100%, ' + percent + '%, 1)';
+    document.getElementById('graph-text').innerText = row.date;
+  }
+</script>
