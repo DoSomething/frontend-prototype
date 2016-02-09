@@ -49,7 +49,11 @@
                   <ul class="navigation__secondary">
                     <li class="navigation__dropdown">
                       {{#if loggedIn}}
-                        <p style="color: #FFF">login test</p>
+                      <a href="#" class="navigation__dropdown-toggle">{{first_name}}</a>
+                        <ul>
+                          <li><a href="https://www.dosomething.org/us/user/{{drupal_id}}" class="active">My Account</a></li>
+                          <li><a href="/logout" class="secondary-nav-item" id="link--logout">Log Out</a></li>
+                        </ul>
                       {{else}}
                         <li class="login">
                           <a class="secondary-nav-item" data-modal-href="#modal--login" id="link--login">Log In</a>
@@ -148,7 +152,7 @@
 
   <div data-modal="" id="modal--register" role="dialog" hidden="hidden">
     <div class="modal__block">
-      <form class="user-info-from-cookie" action="/user/register" method="post" id="user-register-form" accept-charset="UTF-8">
+      <form class="user-info-from-cookie" action="/register" method="post" id="user-register-form" accept-charset="UTF-8">
         <div>
           <div id="edit-message" class="form-item form-type-item">
             <h2 class="auth-heading">Create a DoSomething.org account to get started!</h2>
@@ -162,7 +166,7 @@
                     <div class="validation__message"></div>
                   </div>
                 </label>
-                <input class="js-validate text-field required" placeholder="What do we call you?" data-validate="name" data-validate-required="" type="text" id="edit-field-first-name-und-0-value" name="field_first_name[und][0][value]" value="" size="60" maxlength="255">
+                <input class="js-validate text-field required" placeholder="What do we call you?" data-validate="name" data-validate-required="" type="text" id="first_name" name="first_name" value="" size="60" maxlength="255">
               </div>
             </div>
           </div>
@@ -184,7 +188,7 @@
                             </div>
                           </label>
                           <div class="date-date">
-                            <input class="js-validate text-field" placeholder="MM/DD/YYYY" data-validate="birthday" data-validate-required="" type="text" id="edit-field-birthdate-und-0-value-date" name="field_birthdate[und][0][value][date]" value="" size="60" maxlength="128">
+                            <input class="js-validate text-field" placeholder="MM/DD/YYYY" data-validate="birthday" data-validate-required="" type="text" id="birthdate" name="birthdate" value="" size="60" maxlength="128">
                           </div>
                         </div>
                       </div>
@@ -215,18 +219,18 @@
                       <div class="validation__message"></div>
                     </div>
                   </label>
-                  <input class="js-validate text-field" placeholder="(555) 555-5555" data-validate="phone" type="text" id="edit-field-mobile-und-0-value" name="field_mobile[und][0][value]" value="" size="60" maxlength="255">
+                  <input class="js-validate text-field" placeholder="(555) 555-5555" data-validate="phone" type="text" id="mobile" name="mobile" value="" size="60" maxlength="255">
                 </div>
               </div>
             </div>
             <div class="form-item form-type-password-confirm form-item-pass">
               <div class="form-item form-type-password form-item-pass-pass1">
                 <label class="field-label" for="edit-pass-pass1"><div class="validation"><div class="validation__label">Password <span class="form-required" title="This field is required.">*</span></div><div class="validation__message"></div></div></label>
-                <input class="js-validate text-field required" placeholder="6+ characters... make it tricky!" data-validate="password" data-validate-required="" data-validate-trigger="#edit-pass-pass2" type="password" id="edit-pass-pass1" name="pass[pass1]" size="25" maxlength="128">
+                <input class="js-validate text-field required" placeholder="6+ characters... make it tricky!" data-validate="password" data-validate-required="" data-validate-trigger="#edit-pass-pass2" type="password" id="pass1" name="pass" size="25" maxlength="128">
               </div>
               <div class="form-item form-type-password form-item-pass-pass2">
                 <label class="field-label" for="edit-pass-pass2"><div class="validation"><div class="validation__label">Confirm Password <span class="form-required" title="This field is required.">*</span></div><div class="validation__message"></div></div></label>
-                <input class="js-validate text-field required" placeholder="Just double checking!" data-validate="match" data-validate-required="" data-validate-match="#edit-pass-pass1" type="password" id="edit-pass-pass2" name="pass[pass2]" size="25" maxlength="128">
+                <input class="js-validate text-field required" placeholder="Just double checking!" data-validate="match" data-validate-required="" data-validate-match="#edit-pass-pass1" type="password" id="pass2" name="pass2" size="25" maxlength="128">
               </div>
             </div>
           </div>
