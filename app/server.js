@@ -1,11 +1,13 @@
+require('dotenv').config();
+
 var express = require('express');
 var handlebars = require('express-handlebars');
-var compress = require('compression');
 var bodyParser = require('body-parser');
 var session = require('client-sessions');
 
-// Babel-ify!
-require("babel/register");
+var webpack = require('webpack');
+var webpackDevMiddleware = require('webpack-dev-middleware');
+var webpackConfig = require('../webpack.config');
 
 // Express App
 var app = express();
@@ -35,17 +37,22 @@ app.use(function(req, res, next) {
 app.engine('.hbs', handlebars({ defaultLayout: 'main', extname: '.hbs' }));
 app.set('view engine', '.hbs');
 
-app.use(compress());
+// Serve static assets from project root.
 app.use(express.static(__dirname + '/../'));
 
-// Routes
-require('./server/home')(app);
-require('./server/hello')(app);
-require('./server/gallery')(app);
-require('./server/campaign')(app);
-require('./server/auth')(app);
+// Configure Webpack to compile assets on demand.
+app.use(webpackDevMiddleware(webpack(webpackConfig), {
+  publicPath: webpackConfig.output.publicPath,
+}));
+
+// Register routes.
+require('./server/home')['default'](app);
+require('./server/hello')['default'](app);
+require('./server/gallery')['default'](app);
+require('./server/campaign')['default'](app);
 
 // Start 'er up!
-app.listen(process.env.PORT, function() {
-  console.log("Listening on " + process.env.PORT);
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, function() {
+  console.log('Listening on port '+ PORT + '.');
 });
