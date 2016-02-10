@@ -18,6 +18,9 @@ function addPhotoLayer() {
   $rb.css('top', getRandomInt(0, height));
   $rb.css('left', getRandomInt(0, width));
   $rb.css('z-index', reportbacks.length);
+  var randomInt = getRandomInt(0, 40);
+  var degree = (Math.random() > 0.5 ? randomInt : -randomInt) + 'deg';
+  $rb.css('transform', `rotate(${degree})`);
   $rb.fadeIn(800);
   $('.header').append($rb);
 }
