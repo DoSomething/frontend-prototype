@@ -1,9 +1,9 @@
 .-new {
   display: block;
   width: 100%;
-  min-height: 465px;
-  background-color: #222;
-  padding-top: 175px;
+  height: 640px;
+  background-color: #000;
+  padding-top: 240px;
 }
 
 .-new .wrapper {
@@ -44,10 +44,12 @@
   left: 0;
   right: 0;
   background-color: rgba(200, 0, 0, 0.7);
-  filter: brightness(0.4);
+  z-index: 10;
   -webkit-filter: brightness(0.4);
+  filter: brightness(0.4);
 }
 
 .header-card img {
-  /*-webkit-filter: sepia(50%);*/
+  filter: grayscale();
+  -webkit-filter: grayscale(0.9);
 }

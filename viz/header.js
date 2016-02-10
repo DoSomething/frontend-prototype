@@ -29,14 +29,14 @@ $(document).on('ready', function() {
   $.ajax({
     url: 'https://www.dosomething.org/api/v1/reportback-items',
     data: {
-      count: 12,
+      count: 45,
       campaigns: 3755
     },
     success: function(data) {
       reportbacks = data.data;
       $('.header .wrapper').css('z-index', reportbacks.length + 1);
       addPhotoLayer();
-      setInterval(addPhotoLayer, 500);
+      setInterval(addPhotoLayer, 250);
     }
   });
 });
