@@ -11,7 +11,7 @@ export default function(app) {
         request
             .get(`https://www.dosomething.org/api/v1/content/${req.params.nid}.json`)
             .end(function(data) {
-                res.render('campaign', {data : JSON.parse(data.text)})
+                res.render('newheader', {data : JSON.parse(data.text)})
             });
 
     });

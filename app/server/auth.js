@@ -75,7 +75,6 @@ export default function(app) {
               req.auth.first_name = userData.first_name;
             }
             res.redirect('back');
-            // res.json(data);
           });
     });
 
