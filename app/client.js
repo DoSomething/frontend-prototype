@@ -1,5 +1,3 @@
-import 'babel/polyfill';
-
 import HelloWorld from "./components/HelloWorld";
 import CampaignGallery from "./components/CampaignGallery";
 
