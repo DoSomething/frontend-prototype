@@ -29,7 +29,6 @@
     "react-dom": "^0.14.7",
     "respond.js": "^1.4.2",
     "superagent": "^0.21.0",
-    "babel-cli": "^6.5.1",
     "fender": "0.0.12",
     "webpack": "^1.12.13",
     "webpack-dev-middleware": "^1.5.1",
