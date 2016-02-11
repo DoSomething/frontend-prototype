@@ -1,4 +1,4 @@
-import request from 'superagent';
+import { phoenix } from '../utils';
 
 export default function(app) {
 
@@ -6,14 +6,7 @@ export default function(app) {
      * Campaign interface.
      */
     app.get('/campaigns/:nid', function(req, res) {
-        // Fetch campaign content via DoSomething.org API
-        // https://www.dosomething.org/api/v1/content/:nid
-        request
-            .get(`https://www.dosomething.org/api/v1/content/${req.params.nid}.json`)
-            .end(function(data) {
-                res.render('campaign', {data : JSON.parse(data.text)})
-            });
-
+        // Fetch campaign content via Phoenix API <https://www.dosomething.org/api/v1/content/:nid>
+        phoenix(`campaigns/${req.params.nid}`).then((data) => res.render('campaign', {data, props: JSON.stringify(data)}));
     });
-
 };

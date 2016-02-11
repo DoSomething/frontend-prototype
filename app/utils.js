@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import * as ReactDOMServer from 'react-dom/server';
+import * as request from 'superagent';
 
 /**
  * Render a component on the server.
@@ -25,11 +26,24 @@ export function renderWithServerProps(id, component) {
     var el = document.getElementById(id);
 
     if(el) {
-        var propsEl = document.getElementById(`${id}-props`);
-        var props = JSON.parse(propsEl.innerHTML);
+        const props = JSON.parse(document.getElementById(`${id}-props`).innerHTML);
 
         ReactDOM.render(React.createElement(component, props), el);
     }
 }
 
 
+/**
+ * Make a request to the Phoenix API.
+ * @param path - API endpoint path
+ * @returns {Promise}
+ */
+export function phoenix(path) {
+    return new Promise(function(resolve) {
+        request.get(`https://www.dosomething.org/api/v1/${path}`)
+          .set('Accept', 'application/json')
+          .end((data) => {
+              resolve(data.body.data);
+          });
+    });
+}
