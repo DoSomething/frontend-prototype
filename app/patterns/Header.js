@@ -7,9 +7,11 @@ class Header extends Component {
           <header className="header -hero -new" role="banner">
               <div className="wrapper">
                   <h1 className="header__title">
-                      { this.props.title }
+                      Guns Out
                   </h1>
-                  { this.props.subtitle ? <p className="header__subtitle">{ this.props.subtitle }</p> : null }
+                  <p className="header__subtitle">
+                    the Guns out call to action goes here
+                  </p>
               </div>
           </header>
         );
