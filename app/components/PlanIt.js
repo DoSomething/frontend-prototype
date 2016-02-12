@@ -23,9 +23,15 @@ class PlanIt extends Component {
         let timeAndPlace = this.props.data.time_and_place ? (
           <ContainerBlock layout="half">
               <h4>Time & Place</h4>
-              <p>
-                  { this.props.data.time_and_place }
-              </p>
+              <p>{ this.props.data.time_and_place }</p>
+          </ContainerBlock>
+        ) : null;
+
+        // "VIPs"
+        let vips = this.props.data.vips ? (
+          <ContainerBlock layout="half">
+              <h4>VIPs</h4>
+              <p>{ this.props.data.vips }</p>
           </ContainerBlock>
         ) : null;
 
@@ -37,6 +43,7 @@ class PlanIt extends Component {
               </ContainerBlock>
               {itemsNeeded}
               {timeAndPlace}
+              {vips}
               {this.props.children}
           </Container>
         );
