@@ -4,7 +4,7 @@ const { Component, PropTypes } = React;
 class Header extends Component {
     render() {
         return (
-          <header className="header -hero" role="banner">
+          <header className="header -hero -new" role="banner">
               <div className="wrapper">
                   <h1 className="header__title">
                       { this.props.title }
