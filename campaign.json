@@ -1,0 +1,160 @@
+{
+    "data": {
+        "id": "1144",
+        "title": "Guns Out",
+        "campaign_runs": {
+            "current": {
+                "en": {
+                    "id": "6236"
+                }
+            },
+            "past": []
+        },
+        "language": {
+            "language_code": "en",
+            "prefix": "us"
+        },
+        "translations": {
+            "original": "en",
+            "en": {
+                "language_code": "en",
+                "prefix": "us"
+            }
+        },
+        "tagline": "Collect jeans for local youth experiencing homelessness.",
+        "created_at": "1395865232",
+        "updated_at": "1455296701",
+        "status": "active",
+        "time_commitment": 10,
+        "type": "campaign",
+        "cover_image": {
+            "default": {
+                "uri": "https://www.dosomething.org/sites/default/files/styles/300x300/public/images/TFJ_hero_square.jpg?itok=szEGRMks",
+                "sizes": {
+                    "landscape": {
+                        "uri": "https://www.dosomething.org/sites/default/files/styles/1440x810/public/images/TFJ_hero_landscape_1.jpg?itok=Q31ouPF5"
+                    },
+                    "square": {
+                        "uri": "https://www.dosomething.org/sites/default/files/styles/300x300/public/images/TFJ_hero_square.jpg?itok=szEGRMks"
+                    }
+                },
+                "type": "image",
+                "dark_background": true
+            },
+            "alternate": null
+        },
+        "staff_pick": true,
+        "facts": {
+            "problem": "Over a million young people experience homelessness in the US every year. One item they often request? A pair of jeans.",
+            "solution": null,
+            "sources": [{
+                "formatted": "<p>The National Center on Family Homelessness. \u201cAmerica\u2019s Youngest Outcasts, 2010.\u201d 2011.</p>\n"
+            }]
+        },
+        "solutions": {
+            "copy": {
+                "raw": "Run a gently-used jeans drive in your school or community and donate them at a local shelter. You'll be directly providing an essential clothing item for youth in need.",
+                "formatted": "<p>Run a gently-used jeans drive in your school or community and donate them at a local shelter. You'll be directly providing an essential clothing item for youth in need.</p>\n"
+            },
+            "support_copy": {
+                "raw": "Jeans are the perfect item to donate. They can be worn multiple times between washes, can be dressed up or dressed down, and provide a sense of normalcy to the person wearing them.",
+                "formatted": "<p>Jeans are the perfect item to donate. They can be worn multiple times between washes, can be dressed up or dressed down, and provide a sense of normalcy to the person wearing them.</p>\n"
+            }
+        },
+        "pre_step": {
+            "header": "Run Your Drive!",
+            "copy": {
+                "raw": "After setting up your boxes, mobilize your jean dream team to spread the word that the drive has started with your action kit (found in Stuff You Need above). Set up posters, swag up your drive boxes, and get your school/community involved.",
+                "formatted": "<p>After setting up your boxes, mobilize your jean dream team to spread the word that the drive has started with your action kit (found in Stuff You Need above). Set up posters, swag up your drive boxes, and get your school/community involved.</p>\n"
+            }
+        },
+        "latest_news": {
+            "latest_news": null
+        },
+        "causes": {
+            "primary": {
+                "id": "6",
+                "name": "homelessness"
+            },
+            "secondary": [{
+                "id": "6",
+                "name": "homelessness"
+            }, {
+                "id": "15",
+                "name": "poverty"
+            }]
+        },
+        "action_types": {
+            "primary": {
+                "id": "7",
+                "name": "donate something"
+            },
+            "secondary": [{
+                "id": "7",
+                "name": "donate something"
+            }, {
+                "id": "11",
+                "name": "host an event"
+            }]
+        },
+        "issue": {
+            "id": "161",
+            "name": "youth homelessness"
+        },
+        "tags": [{
+            "id": "1052",
+            "name": "teens for jeans"
+        }, {
+            "id": "1053",
+            "name": "teens"
+        }, {
+            "id": "1054",
+            "name": "jeans"
+        }, {
+            "id": "289",
+            "name": "homeless"
+        }, {
+            "id": "1055",
+            "name": "youth homeless"
+        }, {
+            "id": "333",
+            "name": "shelters"
+        }, {
+            "id": "1415",
+            "name": "clothing"
+        }, {
+            "id": "265",
+            "name": "clothing donation"
+        }, {
+            "id": "266",
+            "name": "clothing drive"
+        }],
+        "timing": {
+            "high_season": {
+                "start": "2015-11-16T00:00:00+0000",
+                "end": "2016-02-29T00:00:00+0000"
+            },
+            "low_season": null
+        },
+        "services": {
+            "mobile_commons": {
+                "opt_in_path_id": "197191",
+                "friends_opt_in_path_id": null
+            },
+            "mailchimp": {
+                "grouping_id": null,
+                "group_name": null
+            }
+        },
+        "mobile_app": {
+            "dates": null
+        },
+        "reportback_info": {
+            "copy": "Submit a pic of the jeans collected to officially enter you and/or your school to win! Every two pairs of jeans you collect earns you a chance to win the $5,000 individual scholarship. The top three collecting schools will each win a school grant (1st: $3,000, 2nd: $2,000, 3rd: $1,000) and an extra $500 to throw a celebration party. (Tip: Updating your jean count? Don't forget to upload a new photo too!)",
+            "confirmation_message": "Nice -- you TOTALLY wear the pants! Thanks for helping young people in your community.",
+            "noun": "Jeans",
+            "verb": "Collected"
+        },
+        "uri": "https://www.dosomething.org/api/v1/campaigns/1144"
+    }
+}
