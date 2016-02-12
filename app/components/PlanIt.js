@@ -10,16 +10,24 @@ class PlanIt extends Component {
 
     render() {
         // "Items Needed" section
-        let itemsNeeded = null;
-        if(this.props.data.items_needed) {
+        let itemsNeeded = this.props.data.items_needed ? (
+          <ContainerBlock layout="half">
+              <h4>Stuff You Need</h4>
+              <ul className="list -compacted">
+                  { this.props.data.items_needed.map((item) => <li>{item}</li>) }
+              </ul>
+          </ContainerBlock>
+        ) : null;
 
-            itemsNeeded = (
-              <ContainerBlock className="with-lists -compacted" layout="half">
-                  <h4>Stuff You Need</h4>
-                  { this.props.data.items_needed }
-              </ContainerBlock>
-            );
-        }
+        // "Time And Place"
+        let timeAndPlace = this.props.data.time_and_place ? (
+          <ContainerBlock layout="half">
+              <h4>Time & Place</h4>
+              <p>
+                  { this.props.data.time_and_place }
+              </p>
+          </ContainerBlock>
+        ) : null;
 
         return (
           <Container padded={true}>
@@ -28,6 +36,7 @@ class PlanIt extends Component {
                   <p>Lorem ipsum dolor sit amet.</p>
               </ContainerBlock>
               {itemsNeeded}
+              {timeAndPlace}
               {this.props.children}
           </Container>
         );
