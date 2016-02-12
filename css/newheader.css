@@ -56,3 +56,29 @@
   filter: grayscale();
   -webkit-filter: grayscale(0.9);
 }
+
+ul.stately {
+  margin-left: 0 !important;
+}
+
+.map .text-container {
+  width: 500px;
+  display: block;
+  margin-left: 0;
+  background-color: #ddd;
+}
+.text-container h1 {
+  text-align: center;
+  margin: 0;
+  padding-bottom: 16px;
+  color: #FFF;
+}
+ul.stately {
+    width: 500px; /*width and font size must match*/
+    font-size: 500px;
+    background-color: #ddd;
+    color: #222;
+}
+.stately li {
+  color: #ddd;
+}
