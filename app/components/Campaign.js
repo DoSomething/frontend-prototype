@@ -22,7 +22,7 @@ class Campaign extends Component {
           <div>
               <Header title={this.props.title} subtitle={this.props.tagline} />
               <KnowIt data={this.props}>
-                  <ContainerBlock layout="narrow">
+                  <ContainerBlock layout="center">
                       <Visualization />
                   </ContainerBlock>
               </KnowIt>
